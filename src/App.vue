@@ -4,11 +4,13 @@
     <ul>
       <li v-for="(beer, index) in allBeers" :key="index">{{beer.name}}</li>
     </ul>
+    <beer-details></beer-details>
   </div>
 </template>
 
 <script>
 import BeerSelector from "./components/BeerSelector.vue";
+import BeerDetails from "./components/BeerDetails.vue"
 
 export default {
 
@@ -24,7 +26,8 @@ export default {
       .then((data) => this.allBeers = data);
   },
   components: {
-    "beer-selector": BeerSelector
+    "beer-selector": BeerSelector,
+    "beer-details": BeerDetails
   }
 }
 </script>
