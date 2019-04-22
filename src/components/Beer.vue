@@ -1,10 +1,11 @@
 <template lang="html">
-  <p>I'm a beer!</p>
+  <p>{{beer.name}}</p>
 </template>
 
 <script>
 export default {
-  name: "beer"
+  name: "beer",
+  props: ["beer"]
 }
 </script>
 
