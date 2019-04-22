@@ -29,6 +29,10 @@ export default {
       eventBus.$on('beer-selected', (beer) => {
         this.currentBeer = beer;
       })
+
+      eventBus.$on('beers-filtered', (beers) => {
+        this.allBeers = beers;
+      })
   },
   components: {
     "beer-selector": BeerSelector,

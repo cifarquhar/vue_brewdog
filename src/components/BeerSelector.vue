@@ -21,7 +21,9 @@ export default {
     },
     handleSubmit: function(evt){
       evt.preventDefault();
-      console.log("form submitted");
+      fetch(`https://api.punkapi.com/v2/beers?beer_name=${evt.target.name.value}`)
+        .then((res) => res.json())
+        .then((beers) => eventBus.$emit('beers-filtered', beers))
     }
   }
 }
