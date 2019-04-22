@@ -10,7 +10,8 @@
 
 <script>
 import BeerSelector from "./components/BeerSelector.vue";
-import BeerDetails from "./components/BeerDetails.vue"
+import BeerDetails from "./components/BeerDetails.vue";
+import BeerList from "./components/BeerList.vue"
 
 export default {
 
