@@ -4,7 +4,8 @@
 
 <script>
 export default {
-  name: "beer-list"
+  name: "beer-list",
+  props: ["beers"]
 }
 </script>
 

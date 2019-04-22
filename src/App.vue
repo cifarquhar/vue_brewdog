@@ -4,7 +4,7 @@
     <!-- <ul>
       <li v-for="(beer, index) in allBeers" :key="index">{{beer.name}}</li>
     </ul> -->
-    <beer-list></beer-list>
+    <beer-list :beers="allBeers"></beer-list>
     <beer-details></beer-details>
   </div>
 </template>
