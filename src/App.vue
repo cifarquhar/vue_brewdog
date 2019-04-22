@@ -22,10 +22,6 @@ export default {
     }
   },
   mounted(){
-    fetch("https://api.punkapi.com/v2/beers")
-      .then((res) => res.json())
-      .then((data) => this.allBeers = data)
-
       eventBus.$on('beer-selected', (beer) => {
         this.currentBeer = beer;
       })
