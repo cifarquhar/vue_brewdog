@@ -1,9 +1,10 @@
 <template>
   <div id="app">
     <beer-selector></beer-selector>
-    <ul>
+    <!-- <ul>
       <li v-for="(beer, index) in allBeers" :key="index">{{beer.name}}</li>
-    </ul>
+    </ul> -->
+    <beer-list></beer-list>
     <beer-details></beer-details>
   </div>
 </template>
@@ -28,7 +29,8 @@ export default {
   },
   components: {
     "beer-selector": BeerSelector,
-    "beer-details": BeerDetails
+    "beer-details": BeerDetails,
+    "beer-list": BeerList
   }
 }
 </script>
