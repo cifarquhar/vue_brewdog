@@ -1,9 +1,6 @@
 <template>
   <div id="app">
     <beer-selector></beer-selector>
-    <!-- <ul>
-      <li v-for="(beer, index) in allBeers" :key="index">{{beer.name}}</li>
-    </ul> -->
     <beer-list :beers="allBeers"></beer-list>
     <beer-details></beer-details>
   </div>
