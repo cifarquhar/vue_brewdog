@@ -2,7 +2,7 @@
   <div id="app">
     <beer-selector></beer-selector>
     <beer-list :beers="allBeers"></beer-list>
-    <beer-details></beer-details>
+    <beer-details :beer="currentBeer"></beer-details>
   </div>
 </template>
 
