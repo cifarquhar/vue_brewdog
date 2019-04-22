@@ -1,11 +1,18 @@
 <template lang="html">
-  <p>I'm a beer list!</p>
+  <ul>
+    <beer v-for="(beer, index) in beers"></beer>
+  </ul>
 </template>
 
 <script>
+import Beer from "./Beer.vue"
+
 export default {
   name: "beer-list",
-  props: ["beers"]
+  props: ["beers"],
+  components: {
+    "beer": Beer
+  }
 }
 </script>
 
