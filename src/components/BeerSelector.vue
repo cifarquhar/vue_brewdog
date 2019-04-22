@@ -1,10 +1,22 @@
 <template lang="html">
-  <p>I'm going to hold the selector!</p>
+  <div>
+    <p>I'm going to hold the selector!</p>
+    <button v-on:click="handleClick">Get Random Beer</button>
+  </div>
 </template>
 
 <script>
+import {eventBus} from "../main.js";
+
 export default {
-  name: "beer-selector"
+  name: "beer-selector",
+  methods: {
+    handleClick: function(){
+      fetch("https://api.punkapi.com/v2/beers/random")
+        .then((res) => res.json())
+        .then((beer) => eventBus.$emit('beer-selected', beer[0]))
+    }
+  }
 }
 </script>
 
@@ -12,4 +24,3 @@ export default {
 <style lang="css" scoped>
 
 </style>
-
