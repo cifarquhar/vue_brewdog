@@ -1,5 +1,5 @@
 <template lang="html">
-  <div>
+  <div v-if="beer">
     <h2>{{beer.name}}</h2>
     <h3>{{beer.tagline}}</h3>
     <p>{{beer.description}}</p>
