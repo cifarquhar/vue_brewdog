@@ -1,6 +1,5 @@
 <template lang="html">
   <div>
-    <p>I'm going to hold the selector!</p>
     <button v-on:click="handleClick">Get Random Beer</button>
   </div>
 </template>
