@@ -24,6 +24,7 @@ export default {
         .then((res) => res.json())
         .then((beer) => eventBus.$emit('beer-selected', beer[0]))
     },
+
     handleSubmit: function(evt){
       evt.preventDefault();
       const url = this.buildUrl(evt);
@@ -31,6 +32,7 @@ export default {
         .then((res) => res.json())
         .then((beers) => eventBus.$emit('beers-filtered', beers))
     },
+    
     buildUrl: function(evt){
       let url = "https://api.punkapi.com/v2/beers"
       const dataKeys = Object.keys(evt.target);
