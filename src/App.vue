@@ -1,7 +1,7 @@
 <template>
   <div id="app">
     <beer-selector></beer-selector>
-    <beer-list :beers="allBeers"></beer-list>
+    <beer-list :beers="filteredData"></beer-list>
     <beer-details :beer="currentBeer"></beer-details>
   </div>
 </template>
@@ -18,16 +18,21 @@ export default {
   data() {
     return{
       allBeers: [],
-      currentBeer: null
+      currentBeer: null,
+      filteredData: []
     }
   },
   mounted(){
+      fetch("https://api.punkapi.com/v2/beers")
+        .then((res => {res.json()}))
+        .then((data) => this.allBeers = data)
+
       eventBus.$on('beer-selected', (beer) => {
         this.currentBeer = beer;
       })
 
       eventBus.$on('beers-filtered', (beers) => {
-        this.allBeers = beers;
+        this.filteredData = beers;
       })
   },
   components: {
