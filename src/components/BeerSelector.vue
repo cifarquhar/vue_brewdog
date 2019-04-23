@@ -16,6 +16,21 @@
       <input id="min-ebc" name="ebc_gt" type="number" min=0 placeholder=0>
       <label for="max-ebc">Max. EBC: </label>
       <input id="max-ebc" name="ebc_lt" type="number" min=0 placeholder=0>
+      <label for="malt">Malt: </label>
+      <select name="malt" id="malt">
+        <option value="">Select a malt type</option>
+        <option v-for="malt in malts" :value="malt">{{malt}}</option>
+      </select>
+      <label for="hops">Hops: </label>
+      <select name="hops" id="hops">
+        <option value="">Select a hop type</option>
+        <option v-for="hop in hops" :value="hop">{{hop}}</option>
+      </select>
+      <label for="yeast">Yeast: </label>
+      <select name="yeast" id="yeast">
+        <option value="">Select a yeast type</option>
+        <option v-for="yeast in yeasts" :value="yeast">{{yeast}}</option>
+      </select>
       <input type="submit" value="Search">
     </form>
   </div>
