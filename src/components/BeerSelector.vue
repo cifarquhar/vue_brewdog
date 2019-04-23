@@ -2,7 +2,12 @@
   <div>
     <button v-on:click="handleClick">Get Random Beer</button>
     <form v-on:submit="handleSubmit">
-      <label for="name">Name: </label><input id="name" name="name" type="text">
+      <label for="name">Name: </label>
+      <input id="name" name="beer_name" type="text">
+      <label for="min-abv">Min. ABV: </label>
+      <input id="min-abv" name="abv_gt" type="number" min=0 placeholder=0>
+      <label for="max-abv">Max. ABV: </label>
+      <input id="max-abv" name="abv_lt" type="number" min=0 placeholder=0>
       <input type="submit" value="Search">
     </form>
   </div>
@@ -21,9 +26,26 @@ export default {
     },
     handleSubmit: function(evt){
       evt.preventDefault();
-      fetch(`https://api.punkapi.com/v2/beers?beer_name=${evt.target.name.value}`)
+      const url = this.buildUrl(evt);
+      fetch(url)
         .then((res) => res.json())
         .then((beers) => eventBus.$emit('beers-filtered', beers))
+    },
+    buildUrl: function(evt){
+      let url = "https://api.punkapi.com/v2/beers"
+      const dataKeys = Object.keys(evt.target);
+      dataKeys.pop()
+      const mappedElements = dataKeys.map((key) => {
+        return evt.target[key]
+      })
+      const filteredElements = mappedElements.filter((element) => {
+        return element.value
+      })
+      filteredElements.forEach((element, index) => {
+        index === 0 ? url += "?" : url += "&"
+        url += `${element.name}=${element.value}`
+      })
+      return url;
     }
   }
 }
