@@ -36,6 +36,8 @@ export default {
       .then((responses) => Promise.all(responses.map(res => res.json())))
       .then(result => this.allBeers = result.flat())
       .then(() => this.filterYeast())
+      .then(() => this.filterHops())
+      .then(() => this.filterMalts())
 
       eventBus.$on('beer-selected', (beer) => {
         this.currentBeer = beer;
@@ -55,6 +57,16 @@ export default {
       this.yeasts = [... new Set(this.allBeers.map((beer) => {
         return beer.ingredients.yeast
       }))]
+    },
+    filterHops: function(){
+      const hopsPerBeer = this.allBeers.map(beer => beer.ingredients.hops)
+      const hops = hopsPerBeer.flat();
+      this.hops = [... new Set(hops.map(hop => hop.name))]
+    },
+    filterMalts: function(){
+      const maltsPerBeer = this.allBeers.map(beer => beer.ingredients.malt)
+      const malts = maltsPerBeer.flat();
+      this.malts = [... new Set(malts.map(malt => malt.name))]
     }
   }
 }
