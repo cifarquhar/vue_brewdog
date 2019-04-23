@@ -42,19 +42,29 @@ export default {
     },
 
     buildUrl: function(evt){
+      // declare base url
       let url = "https://api.punkapi.com/v2/beers"
+
+      // get all keys from form and remove the one for the submit button
       const dataKeys = Object.keys(evt.target);
       dataKeys.pop()
+
+      // get elements corresponding to each key
       const mappedElements = dataKeys.map((key) => {
         return evt.target[key]
       })
+
+      // remove elements with no value entered
       const filteredElements = mappedElements.filter((element) => {
         return element.value
       })
+
+      // build url; first check how to append it
       filteredElements.forEach((element, index) => {
         index === 0 ? url += "?" : url += "&"
         url += `${element.name}=${element.value}`
       })
+      
       return url;
     }
   }
