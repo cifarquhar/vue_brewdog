@@ -31,6 +31,7 @@ export default {
       fetch("https://api.punkapi.com/v2/beers/random")
         .then((res) => res.json())
         .then((beer) => eventBus.$emit('beer-selected', beer[0]))
+        .then(() => eventBus.$emit('beers-filtered', []))
     },
 
     handleSubmit: function(evt){
@@ -64,7 +65,7 @@ export default {
         index === 0 ? url += "?" : url += "&"
         url += `${element.name}=${element.value}`
       })
-      
+
       return url;
     }
   }
