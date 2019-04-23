@@ -26,6 +26,11 @@ import {eventBus} from "../main.js";
 
 export default {
   name: "beer-selector",
+  props: [
+    "yeasts",
+    "malts",
+    "hops"
+  ],
   methods: {
     handleClick: function(){
       fetch("https://api.punkapi.com/v2/beers/random")

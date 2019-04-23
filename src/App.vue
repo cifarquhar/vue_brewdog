@@ -1,6 +1,6 @@
 <template>
   <div id="app">
-    <beer-selector></beer-selector>
+    <beer-selector :yeasts="yeasts" :malts="malts" :hops="hops"></beer-selector>
     <beer-list :beers="filteredData"></beer-list>
     <beer-details :beer="currentBeer"></beer-details>
   </div>
