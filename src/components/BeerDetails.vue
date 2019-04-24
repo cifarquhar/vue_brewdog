@@ -1,6 +1,11 @@
 <template lang="html">
   <div v-if="beer">
     <h2>{{beer.name}}</h2>
+    <p>
+      <strong>ABV:</strong> {{beer.abv}}
+      <strong>IBU:</strong> {{beer.ibu}}
+      <strong>EBC:</strong> {{beer.ebc}}
+    </p>
     <h4>{{beer.tagline}}</h4>
     <p>{{beer.description}}</p>
     <img v-if="beer.image_url" :src="beer.image_url" :alt="beer.name" class="beer-image">
