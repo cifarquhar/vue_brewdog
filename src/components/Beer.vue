@@ -32,10 +32,7 @@ export default {
 </script>
 
 <style lang="css" scoped>
-  .sized-card{
-    /* max-width: 20%; */
-    max-height: 50px;
-  }
+
 </style>
 
 
