@@ -1,5 +1,6 @@
 <template>
   <div id="app">
+    <h1>BrewDog Beer Recipe Selector</h1>
     <beer-selector :yeasts="yeasts" :malts="malts" :hops="hops"></beer-selector>
     <beer-list :beers="filteredData"></beer-list>
     <beer-details :beer="currentBeer"></beer-details>
