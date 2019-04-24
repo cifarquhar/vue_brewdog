@@ -1,9 +1,9 @@
 <template lang="html">
   <div v-if="beer">
     <h2>{{beer.name}}</h2>
-    <h3>{{beer.tagline}}</h3>
+    <h4>{{beer.tagline}}</h4>
     <p>{{beer.description}}</p>
-    <img :src="beer.image_url" :alt="beer.name" class="beer-image">
+    <img v-if="beer.image_url" :src="beer.image_url" :alt="beer.name" class="beer-image">
   </div>
 </template>
 
