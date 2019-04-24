@@ -2,9 +2,9 @@
   <div v-if="beer">
     <h2>{{beer.name}}</h2>
     <p>
-      <strong>ABV:</strong> {{beer.abv}}
-      <strong>IBU:</strong> {{beer.ibu}}
-      <strong>EBC:</strong> {{beer.ebc}}
+      <b>ABV:</b> {{beer.abv}}
+      <b>IBU:</b> {{beer.ibu}}
+      <b>EBC:</b> {{beer.ebc}}
     </p>
     <h4>{{beer.tagline}}</h4>
     <p>{{beer.description}}</p>
@@ -31,7 +31,7 @@
         <td>{{hop.add}}</td>
       </tr>
     </table>
-    <p><strong>Yeast:</strong> {{beer.ingredients.yeast}}</p>
+    <p><b>Yeast:</b> {{beer.ingredients.yeast}}</p>
     <table>
       <th>
         <td>Mash:</td>
@@ -41,7 +41,8 @@
         <td>{{stage.temp.value}} &#8451;</td>
       </tr>
     </table>
-    <p><strong>Ferment:</strong> {{beer.method.fermentation.temp.value}} &#8451;</p>
+    <p><b>Ferment:</b> {{beer.method.fermentation.temp.value}} &#8451;</p>
+    <p v-if="beer.method.twist"><i>To add something extra:</i> {{beer.method.twist}}</p>
   </div>
 </template>
 
