@@ -2,35 +2,49 @@
   <div>
     <button v-on:click="handleClick">Get Random Beer</button>
     <form v-on:submit="handleSubmit">
-      <label for="name">Name: </label>
-      <input id="name" name="beer_name" type="text">
-      <label for="min-abv">Min. ABV: </label>
-      <input id="min-abv" name="abv_gt" type="number" min=0 placeholder=0>
-      <label for="max-abv">Max. ABV: </label>
-      <input id="max-abv" name="abv_lt" type="number" min=0 placeholder=0>
-      <label for="min-ibu">Min. IBU: </label>
-      <input id="min-ibu" name="ibu_gt" type="number" min=0 placeholder=0>
-      <label for="max-ibu">Max. IBU: </label>
-      <input id="max-ibu" name="ibu_lt" type="number" min=0 placeholder=0>
-      <label for="min-ebc">Min. EBC: </label>
-      <input id="min-ebc" name="ebc_gt" type="number" min=0 placeholder=0>
-      <label for="max-ebc">Max. EBC: </label>
-      <input id="max-ebc" name="ebc_lt" type="number" min=0 placeholder=0>
-      <label for="malt">Malt: </label>
-      <select name="malt" id="malt">
-        <option value="">Select a malt type</option>
-        <option v-for="malt in malts" :value="malt">{{malt}}</option>
-      </select>
-      <label for="hops">Hops: </label>
-      <select name="hops" id="hops">
-        <option value="">Select a hop type</option>
-        <option v-for="hop in hops" :value="hop">{{hop}}</option>
-      </select>
-      <label for="yeast">Yeast: </label>
-      <select name="yeast" id="yeast">
-        <option value="">Select a yeast type</option>
-        <option v-for="yeast in yeasts" :value="yeast">{{yeast}}</option>
-      </select>
+      <div class="partition">
+        <label for="name">Name: </label>
+        <input id="name" name="beer_name" type="text">
+      </div>
+      <div>
+        <label for="min-abv">Min. ABV: </label>
+        <input id="min-abv" name="abv_gt" type="number" min=0 placeholder=0>
+        <label for="max-abv">Max. ABV: </label>
+        <input id="max-abv" name="abv_lt" type="number" min=0 placeholder=0>
+      </div>
+      <div class="partition">
+        <label for="min-ibu">Min. IBU: </label>
+        <input id="min-ibu" name="ibu_gt" type="number" min=0 placeholder=0>
+        <label for="max-ibu">Max. IBU: </label>
+        <input id="max-ibu" name="ibu_lt" type="number" min=0 placeholder=0>
+      </div>
+      <div class="partition">
+        <label for="min-ebc">Min. EBC: </label>
+        <input id="min-ebc" name="ebc_gt" type="number" min=0 placeholder=0>
+        <label for="max-ebc">Max. EBC: </label>
+        <input id="max-ebc" name="ebc_lt" type="number" min=0 placeholder=0>
+      </div>
+      <div class="partition">
+        <label for="malt">Malt: </label>
+        <select name="malt" id="malt">
+          <option value="">Select a malt type</option>
+          <option v-for="malt in malts" :value="malt">{{malt}}</option>
+        </select>
+      </div>
+      <div class="partition">
+        <label for="hops">Hops: </label>
+        <select name="hops" id="hops">
+          <option value="">Select a hop type</option>
+          <option v-for="hop in hops" :value="hop">{{hop}}</option>
+        </select>
+      </div>
+      <div class="partition">
+        <label for="yeast">Yeast: </label>
+        <select name="yeast" id="yeast">
+          <option value="">Select a yeast type</option>
+          <option v-for="yeast in yeasts" :value="yeast">{{yeast}}</option>
+        </select>
+      </div>
       <input type="submit" value="Search">
     </form>
   </div>
@@ -94,5 +108,7 @@ export default {
 
 
 <style lang="css" scoped>
-
+  .partition {
+   width: 100%;
+  }
 </style>
