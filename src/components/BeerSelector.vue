@@ -73,7 +73,14 @@ export default {
       const url = this.buildUrl(evt);
       fetch(url)
         .then((res) => res.json())
-        .then((beers) => eventBus.$emit('beers-filtered', beers))
+        .then((beers) => {if (beers.length > 1){
+            eventBus.$emit('beers-filtered', beers)
+          }
+          else {
+            eventBus.$emit('beers-filtered', [])
+            eventBus.$emit('beer-selected', beers[0])
+          }
+        })
     },
 
     buildUrl: function(evt){
