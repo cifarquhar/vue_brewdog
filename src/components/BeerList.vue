@@ -1,7 +1,7 @@
 <template lang="html">
-  <ul>
+  <div class="card-columns">
     <beer v-for="(beer, index) in beers" :beer="beer" :key="index"></beer>
-  </ul>
+  </div>
 </template>
 
 <script>

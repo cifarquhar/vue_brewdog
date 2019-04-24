@@ -1,5 +1,16 @@
 <template lang="html">
-  <p v-on:click="handleClick">{{beer.name}}</p>
+  <div class="card" v-on:click="handleClick">
+    <div class="row no-gutters">
+      <div class="col-md-4">
+        <img class="card-img" :src="beer.image_url" :alt="beer.name">
+      </div>
+      <div class="col-md-8">
+        <div class="card-body">
+          <p>{{beer.name}}</p>
+        </div>
+      </div>
+    </div>
+  </div>
 </template>
 
 <script>
@@ -17,7 +28,10 @@ export default {
 </script>
 
 <style lang="css" scoped>
-
+  .sized-card{
+    /* max-width: 20%; */
+    max-height: 50px;
+  }
 </style>
 
 
