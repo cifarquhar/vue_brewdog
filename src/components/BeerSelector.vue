@@ -107,6 +107,12 @@ export default {
         url += `${element.name}=${element.value}`
       })
 
+      // Check if url has already had something appended then add the appropriate character
+      url += url.includes("?") ? "&" : "?";
+
+      // Set required results to max permitted
+      url += "per_page=80";
+
       return url;
     }
   }
