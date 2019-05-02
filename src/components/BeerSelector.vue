@@ -111,6 +111,7 @@ export default {
       // get all keys from form and remove the one for the submit button
       const dataKeys = Object.keys(evt.target);
       dataKeys.pop()
+      dataKeys.pop()
 
       // get elements corresponding to each key
       const mappedElements = dataKeys.map((key) => {
