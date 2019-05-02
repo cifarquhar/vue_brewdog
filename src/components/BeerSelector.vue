@@ -75,6 +75,8 @@ export default {
         .then((res) => res.json())
         .then((beers) => {if (beers.length > 1){
             eventBus.$emit('beers-filtered', beers)
+            eventBus.$emit('beer-selected', null)
+
           }
           else {
             eventBus.$emit('beers-filtered', [])
