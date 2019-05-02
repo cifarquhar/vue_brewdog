@@ -66,6 +66,7 @@ export default {
       fetch("https://api.punkapi.com/v2/beers/random")
         .then((res) => res.json())
         .then((beer) => eventBus.$emit('beer-selected', beer[0]))
+        .then(() => this.clearDetails())
         .then(() => eventBus.$emit('beers-filtered', []))
     },
 
@@ -87,7 +88,10 @@ export default {
     },
 
     clearDetails: function(evt){
-      evt.preventDefault();
+      if (evt) {
+        evt.preventDefault();
+      };
+      console.log("firing")
       document.querySelector("#name").value = null;
       document.querySelector("#min-abv").value = null;
       document.querySelector("#max-abv").value = null;
