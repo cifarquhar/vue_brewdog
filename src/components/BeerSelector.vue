@@ -46,6 +46,7 @@
         </select>
       </div>
       <input type="submit" value="Search">
+      <button v-on:click="clearDetails">Clear Form</button>
     </form>
   </div>
 </template>
@@ -83,6 +84,20 @@ export default {
             eventBus.$emit('beer-selected', beers[0])
           }
         })
+    },
+
+    clearDetails: function(evt){
+      evt.preventDefault();
+      document.querySelector("#name").value = null;
+      document.querySelector("#min-abv").value = null;
+      document.querySelector("#max-abv").value = null;
+      document.querySelector("#min-ibu").value = null;
+      document.querySelector("#max-ibu").value = null;
+      document.querySelector("#min-ebc").value = null;
+      document.querySelector("#max-ebc").value = null;
+      document.querySelector("#malt").value = "";
+      document.querySelector("#hops").value = "";
+      document.querySelector("#yeast").value = "";
     },
 
     buildUrl: function(evt){
