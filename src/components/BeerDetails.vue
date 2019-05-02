@@ -58,6 +58,9 @@ export default {
     height: 100px;
     width: auto;
   }
+  td{
+    text-align:center;
+  }
 </style>
 
 

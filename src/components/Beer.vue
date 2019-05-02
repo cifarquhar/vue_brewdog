@@ -6,7 +6,11 @@
       </div>
       <div class="col-md-8">
         <div class="card-body">
-          <p>{{beer.name}}</p>
+          <h2>{{beer.name}}</h2>
+          <h4>{{beer.tagline}}</h4>
+          <p><b>ABV:</b> {{beer.abv}}</p>
+          <p><b>IBU:</b> {{beer.ibu}}</p>
+          <p><b>EBC:</b> {{beer.ebc}}</p>
         </div>
       </div>
     </div>
@@ -28,10 +32,7 @@ export default {
 </script>
 
 <style lang="css" scoped>
-  .sized-card{
-    /* max-width: 20%; */
-    max-height: 50px;
-  }
+
 </style>
 
 
