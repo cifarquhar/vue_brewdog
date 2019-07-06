@@ -84,6 +84,7 @@ export default {
           else {
             eventBus.$emit('beers-filtered', [])
             eventBus.$emit('beer-selected', beers[0])
+            eventBus.$emit('modal-state-change', true)
           }
         })
     },
