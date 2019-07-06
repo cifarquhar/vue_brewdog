@@ -68,6 +68,7 @@ export default {
         .then((beer) => eventBus.$emit('beer-selected', beer[0]))
         .then(() => this.clearDetails())
         .then(() => eventBus.$emit('beers-filtered', []))
+        .then(() => eventBus.$emit('modal-state-change', true))
     },
 
     handleSubmit: function(evt){
@@ -83,6 +84,7 @@ export default {
           else {
             eventBus.$emit('beers-filtered', [])
             eventBus.$emit('beer-selected', beers[0])
+            eventBus.$emit('modal-state-change', true)
           }
         })
     },
@@ -91,7 +93,6 @@ export default {
       if (evt) {
         evt.preventDefault();
       };
-      console.log("firing")
       document.querySelector("#name").value = null;
       document.querySelector("#min-abv").value = null;
       document.querySelector("#max-abv").value = null;
