@@ -68,6 +68,7 @@ export default {
         .then((beer) => eventBus.$emit('beer-selected', beer[0]))
         .then(() => this.clearDetails())
         .then(() => eventBus.$emit('beers-filtered', []))
+        .then(() => eventBus.$emit('modal-state-change', true))
     },
 
     handleSubmit: function(evt){

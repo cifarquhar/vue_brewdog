@@ -26,6 +26,7 @@ export default {
   methods: {
     handleClick: function(){
       eventBus.$emit('beer-selected', this.beer)
+      eventBus.$emit('modal-state-change', true)
     }
   }
 }

@@ -3,7 +3,7 @@
     <h1>BrewDog Beer Recipe Selector</h1>
     <beer-selector :yeasts="yeasts" :malts="malts" :hops="hops"></beer-selector>
     <beer-list :beers="filteredData"></beer-list>
-    <beer-details :beer="currentBeer"></beer-details>
+    <beer-details :beer="currentBeer" :showModal="showModal"></beer-details>
   </div>
 </template>
 
@@ -23,7 +23,8 @@ export default {
       filteredData: [],
       yeasts: [],
       malts: [],
-      hops: []
+      hops: [],
+      showModal: false
     }
   },
   mounted(){
@@ -46,6 +47,10 @@ export default {
 
       eventBus.$on('beers-filtered', (beers) => {
         this.filteredData = beers;
+      })
+
+      eventBus.$on('modal-state-change', (value) => {
+        this.showModal = value;
       })
   },
   components: {
