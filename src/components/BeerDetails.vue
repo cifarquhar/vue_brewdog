@@ -19,8 +19,10 @@
     </slot>
     </header>
 
-    <section class="modalBody" id="modalDescription">
-    <slot name="recipe">
+    <section class="modal-body" id="modalDescription">
+    <slot name="ingredients" >
+      <h4>Ingredients:</h4>
+      <div class="modal-content">
       <table>
         <th>
           <td>Grain</td>
@@ -44,6 +46,11 @@
         </tr>
       </table>
       <p><b>Yeast:</b> {{beer.ingredients.yeast}}</p>
+      </div>
+      </slot>
+      <slot name="method">
+        <h4>Method:</h4>
+      <div class="modal-content">
       <table>
         <th>
           <td>Mash:</td>
@@ -54,7 +61,8 @@
         </tr>
       </table>
       <p><b>Ferment:</b> {{beer.method.fermentation.temp.value}} &#8451;</p>
-      <p v-if="beer.method.twist"><i>To add something extra:</i> {{beer.method.twist}}</p>
+      <p v-if="beer.method.twist" id="twist-p"><i>To add something extra:</i> {{beer.method.twist}}</p>
+    </div>
     </slot>
     </section>
 
@@ -93,8 +101,9 @@ export default {
     height: 100px;
     width: auto;
   }
-  td{
+  th > td{
     text-align:center;
+    border-bottom: 1px solid grey;
   }
     .modal-backdrop {
     position: fixed;
@@ -111,15 +120,19 @@ export default {
   .modal {
     background: #FFFFFF;
     box-shadow: 2px 2px 20px 1px;
-    overflow-x: auto;
+    overflow-x: scroll;
     display: flex;
     flex-direction: column;
+    margin: 10%;
+    height: 80%;
+    width: 80%;
   }
 
   .modal-header,
   .modal-footer {
     padding: 15px;
     display: flex;
+    flex-direction: column;
   }
 
   .modal-header {
@@ -136,6 +149,14 @@ export default {
   .modal-body {
     position: relative;
     padding: 20px 10px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+  }
+
+  .modal-content {
+    flex-direction: row;
+    justify-content: space-evenly;
   }
 
   .btn-close {
@@ -153,6 +174,10 @@ export default {
     background: #4AAE9B;
     border: 1px solid #4AAE9B;
     border-radius: 2px;
+  }
+
+  #twist-p {
+    width: 50%;
   }
 </style>
 
