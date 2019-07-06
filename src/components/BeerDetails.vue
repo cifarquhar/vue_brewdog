@@ -15,7 +15,6 @@
       </p>
       <h4>{{beer.tagline}}</h4>
       <p>{{beer.description}}</p>
-      <img v-if="beer.image_url" :src="beer.image_url" :alt="beer.name" class="beer-image">
     </slot>
     </header>
 
