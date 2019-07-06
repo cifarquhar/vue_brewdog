@@ -24,21 +24,21 @@
       <h4>Ingredients:</h4>
       <div class="modal-content">
       <table>
-        <th>
-          <td>Grain</td>
-          <td>Quantity</td>
-        </th>
+        <tr>
+          <td class="heading">Grain</td>
+          <td class="heading">Quantity</td>
+        </tr>
         <tr v-for="(ingredient, index) in beer.ingredients.malt" :key="index">
           <td>{{ingredient.name}}</td>
           <td>{{`${ingredient.amount.value} kg`}}</td>
         </tr>
       </table>
       <table>
-        <th>
-          <td>Hop</td>
-          <td>Quantity</td>
-          <td>Time</td>
-        </th>
+        <tr>
+          <td class="heading">Hop</td>
+          <td class="heading">Quantity</td>
+          <td class="heading">Time</td>
+        </tr>
         <tr v-for="(hop, index) in beer.ingredients.hops" :key="index">
           <td>{{hop.name}}</td>
           <td>{{`${hop.amount.value} g`}}</td>
@@ -52,15 +52,16 @@
         <h4>Method:</h4>
       <div class="modal-content">
       <table>
-        <th>
-          <td>Mash:</td>
-        </th>
+        <tr>
+          <td class="heading">Mash Time</td>
+          <td class="heading">Temp (&#8451;)</td>
+        </tr>
         <tr v-for="(stage, index) in beer.method.mash_temp">
           <td>{{stage.duration ? stage.duration : 60}} mins</td>
-          <td>{{stage.temp.value}} &#8451;</td>
+          <td>{{stage.temp.value}}</td>
         </tr>
       </table>
-      <p><b>Ferment:</b> {{beer.method.fermentation.temp.value}} &#8451;</p>
+      <p><b>Ferment at:</b> {{beer.method.fermentation.temp.value}} &#8451;</p>
       <p v-if="beer.method.twist" id="twist-p"><i>To add something extra:</i> {{beer.method.twist}}</p>
     </div>
     </slot>
@@ -108,8 +109,14 @@ export default {
     height: 100px;
     width: auto;
   }
-  th > td{
-    text-align:center;
+
+  table {
+    table-layout: auto;
+    width: 30%;
+  }
+
+  .heading {
+    font-weight: bold;
     border-bottom: 1px solid grey;
   }
     .modal-backdrop {
