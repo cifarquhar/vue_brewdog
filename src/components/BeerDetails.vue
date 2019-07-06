@@ -1,7 +1,7 @@
 <template lang="html">
 <transition name="modal-fade">
-  <div  class="modal-backdrop">
-  <div v-show="showModal" class="modal" role="dialog" aria-labelledBy="modalTitle" aria-describedBy="modalDescription">
+  <div v-show="showModal" class="modal-backdrop">
+  <div class="modal" role="dialog" aria-labelledBy="modalTitle" aria-describedBy="modalDescription">
 
     <header class="modal-header" id="modalTitle">
     <slot name="header">
