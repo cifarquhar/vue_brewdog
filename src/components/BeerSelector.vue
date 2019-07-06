@@ -92,7 +92,6 @@ export default {
       if (evt) {
         evt.preventDefault();
       };
-      console.log("firing")
       document.querySelector("#name").value = null;
       document.querySelector("#min-abv").value = null;
       document.querySelector("#max-abv").value = null;
