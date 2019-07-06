@@ -1,7 +1,7 @@
 <template lang="html">
 <transition name="modal-fade">
-  <div v-show="showModal" class="modal-backdrop">
-  <div class="modal" role="dialog" aria-labelledBy="modalTitle" aria-describedBy="modalDescription">
+  <div v-show="showModal" class="modal-backdrop" v-on:click="handleClick">
+  <div class="modal" role="dialog" aria-labelledBy="modalTitle" aria-describedBy="modalDescription" v-on:click="blockClick">
 
     <header class="modal-header" id="modalTitle">
     <slot name="header">
@@ -91,6 +91,13 @@ export default {
   methods: {
     close: function(){
       eventBus.$emit("modal-state-change", false)
+    },
+    handleClick: function(evt){
+      evt.stopPropagation()
+      eventBus.$emit("modal-state-change", false)
+    },
+    blockClick: function(evt) {
+      evt.stopPropagation()
     }
   }
 }
@@ -123,9 +130,9 @@ export default {
     overflow-x: scroll;
     display: flex;
     flex-direction: column;
-    margin: 10%;
-    height: 80%;
-    width: 80%;
+    margin: 5%;
+    height: 90%;
+    width: 90%;
   }
 
   .modal-header,
