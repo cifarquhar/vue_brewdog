@@ -1,29 +1,3 @@
 # vue_brewdog
 
-## Project setup
-```
-npm install
-```
-
-### Compiles and hot-reloads for development
-```
-npm run serve
-```
-
-### Compiles and minifies for production
-```
-npm run build
-```
-
-### Run your tests
-```
-npm run test
-```
-
-### Lints and fixes files
-```
-npm run lint
-```
-
-### Customize configuration
-See [Configuration Reference](https://cli.vuejs.org/config/).
+An fornt-end interface to search the Brewdog [punkapi](https://punkapi.com/). Built using Vue.js and available at [http://vuedog.herokuapp.com/](http://vuedog.herokuapp.com/).
